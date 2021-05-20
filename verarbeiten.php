@@ -40,8 +40,8 @@
         $bearbeiten = true;
 
         $student = $mysqli->query(
-            "SELECT * FROM student
-            LEFT JOIN studiengang
+            "SELECT student.*, studiengang.name
+            FROM student LEFT JOIN studiengang
             ON student.studiengang_id=studiengang.id
             WHERE student.id=$id ")
         or die($mysqli->error);
@@ -77,7 +77,7 @@
 
 
     $ergebnis = $mysqli->query(
-        "SELECT * FROM student
+        "SELECT student.*, studiengang.name FROM student
         LEFT JOIN studiengang
         ON student.studiengang_id=studiengang.id"
         ) or die ($mysqli->error);
