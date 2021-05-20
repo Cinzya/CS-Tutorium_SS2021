@@ -32,9 +32,9 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Studiengang:</label>
-                <select class="form-control" type="text" value="<?=$studiengang?>" name="studiengang" placeholder="Gib den Studiengang an" required>
+                <select class="form-control" type="text" name="studiengang" placeholder="Gib den Studiengang an" required>
                     <?php while($row = $studiengaenge->fetch_assoc()): ?>
-                        <option value="<?=$row['id']?>"><?=$row['name']?></option>
+                        <option value="<?=$row['id']?>" <?= ($row['id'] == $studiengang) ? "selected='selected'" : ""; ?>><?=$row['name']?></option>
                     <?php endwhile;?>
                 </select>
             </div>
