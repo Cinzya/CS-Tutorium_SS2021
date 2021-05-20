@@ -13,6 +13,7 @@
     <h1 class="text-center">Neuer Student:</h1>
     <div class="row justify-content-center">
         <form action="index.php" method="POST" class="col-5">
+            <input type="hidden" name="id" value="<?=$id?>">
             <div class="mb-3">
                 <label class="form-label">Vorname:</label>
                 <input class="form-control" type="text" value="<?=$vorname?>" name="vorname" placeholder="Gib den Vorname an" required>
@@ -31,7 +32,11 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Studiengang:</label>
-                <input class="form-control" type="text" value="<?=$studiengang?>" name="studiengang" placeholder="Gib den Studiengang an" required>
+                <select class="form-control" type="text" value="<?=$studiengang?>" name="studiengang" placeholder="Gib den Studiengang an" required>
+                    <?php while($row = $studiengaenge->fetch_assoc()): ?>
+                        <option value="<?=$row['id']?>"><?=$row['name']?></option>
+                    <?php endwhile;?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="date">Geburtstag:</label>

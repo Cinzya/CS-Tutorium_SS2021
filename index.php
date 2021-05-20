@@ -31,7 +31,7 @@
                 <td><?=$row["vorname"]?></td>
                 <td><?=$row["nachname"]?></td>
                 <td><?=$row["semester"]?></td>
-                <td><?=$row["studiengang"]?></td>
+                <td><?=$row["name"]?></td>
                 <td><?=$row["geburtstag"]?></td>
                 <td><?=$row["matrikelnummer"]?></td>
                 <td>
