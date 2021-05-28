@@ -46,6 +46,6 @@
         </table>
         <a href="neu.php" class="btn btn-primary">Neuer Student</a>
 </div>
-
+<?php include("footer.php");?>
 </body>
 </html>

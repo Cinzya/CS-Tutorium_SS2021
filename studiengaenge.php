@@ -28,12 +28,14 @@
                 <td><?=$row["regelstudienzeit"]?> Semester</td>
                 <td>
                     <a href="studiengaenge.php?loeschen=<?=$row['id']?>" class="btn btn-danger">Löschen</a>
-                    <a href="studiengeange.php?bearbeiten=<?=$row['id']?>" class="btn btn-info">Bearbeiten</a>
+                    <a href="studiengaenge.php?bearbeiten=<?=$row['id']?>" class="btn btn-info">Bearbeiten</a>
                 </td>
             </tr>
         <?php endwhile;?>
         </tbody>
     </table>
 </div>
+<?php include("footer.php");?>
+
 </body>
 </html>
