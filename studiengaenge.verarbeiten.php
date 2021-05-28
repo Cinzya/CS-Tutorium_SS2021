@@ -31,5 +31,33 @@
             or die ($mysqli->error);
     }
 
+    if (isset($_GET["bearbeiten"])) {
+        $bearbeiteStudiengang = true;
+
+        $id = $_GET['bearbeiten'];
+
+        $studiengang = $mysqli->query(
+            "SELECT * FROM studiengang WHERE id='$id'"
+        ) or die($mysqli->error);
+    
+        $row = $studiengang->fetch_array();
+        $name = $row["name"];
+        $kurzform = $row["kurzform"];
+        $regelstudienzeit = $row["regelstudienzeit"];
+    }
+    if (isset($_POST["bearbeiten"])) {
+        $id = $_POST["id"];
+        $name = $_POST["name"];
+        $kurzform = $_POST["kurzform"];
+        $regelstudienzeit = $_POST["studienzeit"];
+
+        $mysqli->query(
+            "UPDATE studiengang SET 
+            name='$name',
+            kurzform='$kurzform',
+            regelstudienzeit='$regelstudienzeit'
+            WHERE id='$id'") or die($mysqli->error);
+    }
+
     $studiengaenge = $mysqli->query("SELECT * FROM studiengang");
 ?>

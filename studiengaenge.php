@@ -32,13 +32,19 @@
                 </td>
             </tr>
         <?php endwhile;?>
-        <?php if ($neuerStudiengang): ?>
+        <?php if ($neuerStudiengang || $bearbeiteStudiengang): ?>
         <tr>
             <form action="studiengaenge.php" method="POST">
-                <td><input type="text" name="name"></td>
-                <td><input type="text" name="kurzform"></td>
-                <td><input type="number" name="studienzeit"></td>
+            <input type="hidden" name="id" value="<?=$id?>">
+                <td><input type="text" name="name" value="<?=$name ?>"></td>
+                <td><input type="text" name="kurzform" value="<?=$kurzform ?>"></td>
+                <td><input type="number" name="studienzeit" value="<?=$regelstudienzeit ?>"></td>
+                <?php if ($neuerStudiengang): ?>
                 <td><input class="btn btn-primary" type="submit" name="speichern" value="Hinzufügen"></td>
+                <?php endif; ?>
+                <?php if ($bearbeiteStudiengang): ?>
+                <td><input class="btn btn-primary" type="submit" name="bearbeiten" value="Speichern"></td>
+                <?php endif; ?>
             </form>
         </tr>
         <?php endif; ?>
