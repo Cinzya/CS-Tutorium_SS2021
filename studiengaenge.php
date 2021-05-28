@@ -32,8 +32,21 @@
                 </td>
             </tr>
         <?php endwhile;?>
+        <?php if ($neuerStudiengang): ?>
+        <tr>
+            <form action="studiengaenge.php" method="POST">
+                <td><input type="text" name="name"></td>
+                <td><input type="text" name="kurzform"></td>
+                <td><input type="number" name="studienzeit"></td>
+                <td><input class="btn btn-primary" type="submit" name="speichern" value="Hinzufügen"></td>
+            </form>
+        </tr>
+        <?php endif; ?>
         </tbody>
     </table>
+    <?php if (!$neuerStudiengang): ?>
+    <a href="studiengaenge.php?neu" class="btn btn-primary">Neuer Studiengang</a>
+    <?php endif; ?>
 </div>
 <?php include("footer.php");?>
 
