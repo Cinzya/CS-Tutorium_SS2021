@@ -9,6 +9,7 @@
 
 </head>
 <body>
+<?php include("navbar.php");?>
 <div class="container">
     <h1>Studentenliste</h1>
         <table class="table">
@@ -45,6 +46,6 @@
         </table>
         <a href="neu.php" class="btn btn-primary">Neuer Student</a>
 </div>
-
+<?php include("footer.php")?>
 </body>
 </html>
