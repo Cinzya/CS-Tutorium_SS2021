@@ -82,5 +82,4 @@
         ON student.studiengang_id=studiengang.id"
         ) or die ($mysqli->error);
 
-    $studiengaenge = $mysqli->query("SELECT * FROM studiengang");
 ?>
