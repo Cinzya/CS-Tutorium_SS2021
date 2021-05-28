@@ -8,6 +8,7 @@
     <title>Studiengänge</title>
 </head>
 <body>
+<?php include("navbar.php");?>
 <div class="container">
 <h2>Studiengänge</h2>
     <table class="table">
