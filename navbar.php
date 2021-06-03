@@ -13,6 +13,14 @@
           <a class="nav-link" href="studiengaenge.php">Studiengänge</a>
         </li>
       </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a href="login.php" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="registrieren.php" class="nav-link">Registrieren</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
