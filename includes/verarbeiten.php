@@ -1,6 +1,5 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "", "studentenliste") or die(mysqli_error($mysqli));
-
+require_once 'db.php';
     $bearbeiten = false;
 
 
