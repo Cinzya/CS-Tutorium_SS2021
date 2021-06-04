@@ -26,10 +26,6 @@
             <label for="exampleInputPassword1" class="form-label">Passwort wiederholen</label>
             <input type="password" name="passwortWiederholung" class="form-control" id="exampleInputPassword2" required>
         </div>
-        <!-- <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div> -->
         <button type="submit" name="registrieren" class="btn btn-primary">Registrieren</button>
         </form>
 
