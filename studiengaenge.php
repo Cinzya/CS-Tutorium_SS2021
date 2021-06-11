@@ -28,17 +28,23 @@
                 <td><?=$row["regelstudienzeit"]?> Semester</td>
                 <td>
                     <a href="studiengaenge.php?loeschen=<?=$row['id']?>" class="btn btn-danger">Löschen</a>
-                    <a href="neu.php?bearbeiten=<?=$row['id']?>" class="btn btn-info">Bearbeiten</a>
+                    <a href="studiengaenge.php?bearbeiten=<?=$row['id']?>" class="btn btn-info">Bearbeiten</a>
                 </td>
             </tr>
         <?php endwhile;?>
-        <?php if ($neuerStudiengang): ?>
+        <?php if ($neuerStudiengang || $bearbeiteStudiengang): ?>
             <tr>
             <form action="studiengaenge.php" method="POST">
-                <td><input type="text" name="name"></td>
-                <td><input type="text" name="kurzform"></td>
-                <td><input type="number" name="studienzeit"></td>
-                <td><input type="submit" name="speichern" value="Speichern" class="btn btn-primary"></td>
+                <input type="hidden" name="id" value="<?=$id?>">
+                <td><input type="text" name="name" value="<?=$name?>"></td>
+                <td><input type="text" name="kurzform" value="<?=$kurzform?>"></td>
+                <td><input type="number" name="studienzeit" value="<?=$regelstudienzeit?>"></td>
+                <?php if ($neuerStudiengang): ?>
+                    <td><input type="submit" name="speichern" value="Hinzufügen" class="btn btn-primary"></td>
+                <?php endif; ?>
+                <?php if ($bearbeiteStudiengang): ?>
+                    <td><input type="submit" name="aktualisieren" value="Speichern" class="btn btn-primary"></td>
+                <?php endif; ?>
             </form>
             </tr>
         <?php endif; ?>

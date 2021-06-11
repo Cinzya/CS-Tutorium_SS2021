@@ -1,12 +1,17 @@
 <?php
     $mysqli = new mysqli("localhost", "root", "", "studentenliste") or die(mysqli_error($mysqli));
 
+    $bearbeiteStudiengang = false;
     $neuerStudiengang = false;
+
+    $name = "";
+    $kurzform = "";
+    $regelstudienzeit = "";
 
     if (isset($_GET["neu"])) {
         $neuerStudiengang = true;
     }
-    
+
     if (isset($_POST["speichern"])) {
         $name = $_POST["name"];
         $kurzform = $_POST["kurzform"];
@@ -22,6 +27,36 @@
         $id = $_GET["loeschen"];
         $mysqli->query("DELETE FROM studiengang WHERE id=$id")
         or die($mysqli->error);
+    }
+
+    if (isset($_GET["bearbeiten"])) {
+        $bearbeiteStudiengang = true;
+
+        $id = $_GET["bearbeiten"];
+
+        $studiengang = $mysqli->query(
+            "SELECT * FROM studiengang WHERE id='$id'
+        ") or die($mysqli->error);
+
+        $row = $studiengang->fetch_array();
+        $name = $row["name"];
+        $kurzform = $row["kurzform"];
+        $regelstudienzeit = $row["regelstudienzeit"];
+    }
+
+    if (isset($_POST["aktualisieren"])) {
+        $name = $_POST["name"];
+        $kurzform = $_POST["kurzform"];
+        $regelstudienzeit = $_POST["studienzeit"];
+        $id = $_POST["id"];
+
+        $mysqli->query(
+            "UPDATE studiengang SET
+            name='$name',
+            kurzform='$kurzform',
+            regelstudienzeit='$regelstudienzeit'
+            WHERE id='$id'"
+        ) or die($mysqli->error);
     }
 
     $studiengaenge = $mysqli->query("SELECT * FROM studiengang");
