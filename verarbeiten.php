@@ -2,8 +2,17 @@
     $mysqli = new mysqli("localhost", "root", "", "studentenliste") or die(mysqli_error($mysqli));
 
     $bearbeiten = false;
+    $spalte = "id";
+    $reihenfolge = "DESC";
 
+    if(isset($_GET['sortiere'])) {
+        $spalte = $_GET['sortiere'];
+    }
 
+    if(isset($_GET['reihenfolge'])) {
+        $reihenfolge = $_GET['reihenfolge'];
+    }
+    
     if(isset($_POST["speichern"])){
         $vorname = $_POST["vorname"];
         $nachname = $_POST["nachname"];
@@ -79,7 +88,8 @@
     $ergebnis = $mysqli->query(
         "SELECT student.*, studiengang.name FROM student
         LEFT JOIN studiengang
-        ON student.studiengang_id=studiengang.id"
+        ON student.studiengang_id=studiengang.id
+        ORDER BY $spalte $reihenfolge"
         ) or die ($mysqli->error);
 
     $studiengaenge = $mysqli->query("SELECT * FROM studiengang");
